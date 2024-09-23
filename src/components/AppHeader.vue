@@ -50,7 +50,7 @@ const items = ref<IMenuItem[]>([
     <app-menubar :model="items" class="menu">
       <template #item="{ item, props }">
         <template v-if="item.show">
-          <router-link :to="item.path" class="flex align-items-center" v-bind="props.action">
+          <router-link :to="item.path" class="flex items-center" v-bind="props.action">
             <span :class="item.icon" class="p-menuitem-icon" />
             <span class="ml-2">{{ item.label }}</span>
           </router-link>
@@ -58,7 +58,7 @@ const items = ref<IMenuItem[]>([
       </template>
       <template #end>
         <div
-          class="flex align-items-center menu-exit"
+          class="flex items-center menu-exit"
           v-if="userStore.userId"
           @click="userStore.userId = ''"
         >

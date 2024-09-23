@@ -1,14 +1,14 @@
-import './assets/main.css'
 import 'primeicons/primeicons.css'
-import 'primeflex/primeflex.css'
+import './assets/main.css'
 
 import { initializeApp } from 'firebase/app'
 
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
-import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
+import Button from 'primevue/button'
+import PrimeVue from 'primevue/config'
 import Menubar from 'primevue/menubar'
 
 import App from './App.vue'
@@ -26,16 +26,22 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 
 const app = createApp(App)
-
 app.use(createPinia())
-app.use(PrimeVue, {
-  theme: {
-    preset: Aura
-  }
+app.use(router)
+
+app.use(PrimeVue,{
+	theme: {
+		preset: Aura,
+		options: {
+			cssLayer: {
+				name: 'primevue',
+				order: 'tailwind-base, primevue, tailwind-utilities'
+		}
+		}
+	}
 })
 
 app.component('app-menubar', Menubar)
-
-app.use(router)
+app.component('app-button', Button)
 
 app.mount('#app')
