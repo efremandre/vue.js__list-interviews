@@ -26,7 +26,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/auth',
     name: 'Auth',
-    component: () => import('../views/AuthPage.vue')
+    component: () => import('@/views/AuthPage.vue')
   },
   {
     path: '/interview/:id',

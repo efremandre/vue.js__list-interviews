@@ -1,4 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {computed, ref} from 'vue'
+
+const idLogin = ref<boolean>(true)
+
+const toggleAuth = () => {
+	idLogin.value = !idLogin.value
+}
+
+const subtitleText = computed<string>(()=> {
+	return idLogin.value ? 'Войдите в свою учетную запись' : 'Создайте новую учетную запись'
+})
+
+const linkAccountText = computed<string>(()=> {
+	return idLogin.value ? 'Войдите в свою учетную запись' : 'Создайте новую учетную запись'
+})
+</script>
 
 <template>
   <app-toast position="bottom-right" />
